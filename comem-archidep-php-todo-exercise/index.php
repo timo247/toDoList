@@ -8,11 +8,11 @@
 define('BASE_URL', '/');
 
 // Database connection parameters.
-define('DB_USER', 'timo');
-define('DB_PASS', 'Timo$alut');
-define('DB_NAME', 'todolist');
-define('DB_HOST', 'localhost');
-define('DB_PORT', '3306');
+define('DB_USER', getenv('TODOLIST_DB_USER') ?: 'timo');
+define('DB_PASS', getenv('TODOLIST_DB_PASS'));
+define('DB_NAME', getenv('TODOLIST_DB_NAME') ?: 'todolist');
+define('DB_HOST', getenv('TODOLIST_DB_HOST') ?: '127.0.0.1');
+define('DB_PORT', getenv('TODOLIST_DB_PORT') ?: '3306');
 
 
 $db = new PDO('mysql:host='.DB_HOST.';port='.DB_PORT.';dbname='.DB_NAME, DB_USER, DB_PASS);
